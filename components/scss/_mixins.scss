@@ -1,0 +1,39 @@
+// Translate Function with GPU
+@mixin translateXGPU($value: 0) {
+  -webkit-transform: translateX($value) translateZ(0);
+  -moz-transform: translateX($value) translateZ(0);
+  -ms-transform: translateX($value) translateZ(0);
+  -o-transform: translateX($value) translateZ(0);
+  transform: translateX($value) translateZ(0);
+}
+
+// Media Queries Mixins
+@mixin mq-small {
+  @media (min-width: $screen-small) and (max-width: $screen-medium - 1px) {
+    @content;
+  }
+}
+
+@mixin mq-small-up {
+  @media (min-width: $screen-small) {
+    @content;
+  }
+}
+
+@mixin mq-medium {
+  @media (min-width: $screen-medium) and (max-width: $screen-large - 1px) {
+    @content;
+  }
+}
+
+@mixin mq-medium-up {
+  @media (min-width: $screen-medium) {
+    @content;
+  }
+}
+
+@mixin mq-large-up {
+  @media (min-width: $screen-large) {
+    @content;
+  }
+}

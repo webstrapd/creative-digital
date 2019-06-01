@@ -1,0 +1,42 @@
+html {
+  font: $mainFontStyle;
+  color: $mainFontColor;
+  min-width: 100%;
+}
+
+html {
+  min-width: 100%;
+}
+
+a {
+  color: $mainFontColor;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  @include transition(all, .5s);
+
+  &:link {
+    color: $mainFontColor;
+  }
+
+  //&:visited {
+  //  color: if(lightness($mainFontColor) < 50%, lighten($mainFontColor, 70%), darken($mainFontColor, 30%));
+  //}
+
+  &:hover {
+    color: $hoverLinkColor;
+    //border-color: $hoverLinkColor;
+  }
+
+  &:active {
+    color: $activeLinkColor;
+  }
+}
+
+#{headings(all)} {
+  font-weight: bold;
+}
+
+.block-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}

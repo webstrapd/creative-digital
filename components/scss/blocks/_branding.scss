@@ -1,0 +1,254 @@
+// block header with class .branding
+.branding {
+  color: $scdFontColor;
+  background: $scdBGColor url(../images/branding/branding_bg.jpg) no-repeat center center;
+  @include background-size(cover);
+
+  min-height: 100vh;
+
+  &__soc-media-block {
+    width: 100%;
+    background-color: transparentize($scdBGColor, .5);
+  }
+
+  &__title {
+    font-family: $scdFont;
+    font-size: 2em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-top: 2.5em;
+
+    @include transition();
+
+    // Media query for .branding__title
+    @include mq-medium-up {
+      font-size: 3.5em;
+      margin-top: 10vh;
+    }
+  }
+}
+
+// Soc-media items
+.soc-media {
+  text-align: center;
+  @include transition();
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__link {
+    display: block;
+    color: $scdFontColor;
+    border-bottom: none;
+
+    font-size: 1.5em;
+    padding: .3em;
+
+    @each $name, $code in $socMediaIconsCode {
+      &_#{$name}:before {
+        content: '#{$code}';
+        font-family: 'icomoon' !important;
+      }
+    }
+  }
+
+  // Media query for .soc-media
+  @include mq-medium-up {
+    font-size: .7em;
+    text-align: right;
+  }
+}
+
+// Main Navigation
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $scdBGColor;
+
+  @include translateXGPU(-100%);
+
+  // Media query for .navigation
+  @include mq-medium-up {
+    position: static;
+    width: auto;
+    height: auto;
+    @include translateXGPU(0);
+    background: none;
+  }
+
+  &__show-button {
+    background: transparentize($scdBGColor, .5);
+    color: $scdFontColor;
+    padding: .8em .8em;
+
+    position: absolute;
+    top: $menuShowButtonTop;
+    left: 2rem;
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    border: 2px solid $scdFontColor;
+    @include border-radius(.5em);
+    @include transition();
+
+    &:before {
+      content: '\e901';
+      font-family: "icomoon" !important;
+      margin-right: .7em;
+      display: inline-block;
+      @include scale(1.3);
+    }
+
+    &:hover {
+      background-color: $hoverLinkColor;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $hoverLinkColor;
+    }
+
+    &_close {
+      &:before {
+        content: "\ea38";
+      }
+    }
+
+    // Media query for .navigation__show-button
+    @include mq-medium-up {
+      display: none;
+    }
+  }
+
+  &__list {
+    margin-top: $menuShowButtonTop + 3rem;
+    border-top: 1px solid darken($mainBGColor, 20%);
+
+    // Media query for .navigation__list
+    @include mq-medium-up {
+      margin-top: 2rem;
+      border-top: none;
+      text-align: center;
+    }
+  }
+
+  &__item {
+    background: transparentize($scdBGColor, .6);
+    border-bottom: 1px solid darken($mainBGColor, 20%);
+    @include transition();
+
+    &:hover {
+      background-color: if(lightness($scdBGColor) < 50%,
+              transparentize(lighten($scdBGColor, 50%), .6),
+              transparentize(darken($scdBGColor, 30%), .6));
+    }
+
+    // Media query for .navigation__item
+    @include mq-medium-up {
+      position: relative;
+      display: inline-block;
+      background: none;
+      border-bottom: none;
+
+      &:hover > .submenu {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 1.1em;
+    padding: .8em 0 .8em 15%;
+    color: $scdFontColor;
+    text-transform: uppercase;
+
+    // Media query for .navigation__link
+    @include mq-medium-up {
+      padding: .5em 1em;
+      font-size: .9em;
+      text-transform: capitalize;
+    }
+  }
+}
+
+// Submenu with items by Navigation
+.submenu {
+  position: absolute;
+  top: $menuShowButtonTop + 3rem;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  @include transition();
+  @include translateXGPU(-100%);
+
+  background-color: lighten($scdBGColor, 50%);
+
+  // Media query for .submenu
+  @include mq-medium-up {
+    display: none;
+    @include translateXGPU(0);
+    min-height: auto;
+    width: 200px;
+    top: 2.1em;
+    left: 0;
+    background: none;
+  }
+
+  &_open {
+    display: block;
+    @include translateXGPU(0%);
+  }
+
+  &__link {
+    display: block;
+    padding: .5em 0 .5em 15%;
+    background-color: transparentize($mainBGColor, .6);
+    border-bottom: 1px solid darken($mainBGColor, 20%);
+    @include transition();
+
+    &:hover {
+      background-color: if(lightness($mainBGColor) < 50%,
+              transparentize(lighten($mainBGColor, 50%), .6),
+              transparentize(darken($mainBGColor, 30%), .6));
+    }
+
+    // Media query for .submenu
+    @include mq-medium-up {
+      padding: .5em 1em;
+      text-align: left;
+    }
+  }
+}
+
+// Block best travels
+.best-travels {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  // Media query for .best-travels
+  @include mq-medium-up {
+    //display: none;
+  }
+
+  @for $i from 1 to 4 {
+    &__item_0#{$i} {
+      background: url(../images/branding/best-travels__item_0#{$i}.jpg) no-repeat center center;
+      @include background-size(cover);
+    }
+  }
+
+  &__item {
+    flex: 1 1 200px;
+    max-width: 370px;
+    margin: 3% 1%;
+  }
+}

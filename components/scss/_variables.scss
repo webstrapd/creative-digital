@@ -1,0 +1,42 @@
+// Fonts
+@import "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i";
+@import "https://fonts.googleapis.com/css?family=Bree+Serif";
+@import "https://fonts.googleapis.com/css?family=Raleway:400,400i";
+
+
+// Variables
+$mainFontStyle : 18px/1.3 'Open Sans', Arial, Verdana, sans-serif;
+$scdFont : "Bree Serif", Arial, Verdana, sans-serif;
+$trdFont : Raleway, Arial, Verdana, sans-serif;
+
+
+// Colors
+$mainBGColor : #fff;
+$scdBGColor : #000;
+
+$mainFontColor : #000;
+$scdFontColor: #fff;
+
+$decorColor : #f7fa00;
+
+$hoverLinkColor : #fc9e20;
+$activeLinkColor : #3399cc;
+
+
+// Padding
+$menuShowButtonTop : 5rem;
+
+
+// Icons
+$socMediaIconsCode : (instagram: "\ea92", facebook: "\e909", twitter: "\e90d", youtube: "\e914", google: "\e90a");
+
+
+// Default Transition Settings
+$default-transition-property : all;
+$default-transition-duration : .5s;
+
+
+// Display size
+$screen-small : 400px;
+$screen-medium : 760px;
+$screen-large : 1000px;

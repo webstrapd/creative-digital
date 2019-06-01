@@ -1,0 +1,69 @@
+// Wrapper for body
+.site-wrapper {
+  @include transition();
+
+  &_open {
+    @include translateXGPU(100%);
+  }
+}
+
+// Block Article
+.article {
+  padding: 15rem 1.5rem 1.5rem;
+  color: $scdFontColor;
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    background: transparent;
+    @include background-image(linear-gradient(to top, transparentize($scdBGColor, .2) 0%, transparentize($scdBGColor, 1) 35%));
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__category {
+    display: inline-block;
+    font-size: .8em;
+    color: $mainFontColor;
+    font-weight: bold;
+    padding: .2em .3em;
+    background-color: $decorColor;
+  }
+
+  &__header {
+    margin: .8em 0 .5em;
+  }
+
+  &__comments {
+    font-size: .7em;
+    margin-right: 3em;
+
+    &:before {
+      content: '\e96b';
+      font-family: 'icomoon' !important;
+      font-size: 1.3em;
+      margin-right: .4em;
+    }
+  }
+
+  &__date {
+    font-size: .8em;
+
+    &:before {
+      content: '\e900';
+      font-family: 'icomoon' !important;
+      font-size: 1.3em;
+      margin-right: .4em;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "creative-digital",
+  "version": "0.0.1",
+  "description": "Creative Digital Agencies Website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DRosmait/creative-digital.git"
+  },
+  "author": "Dima Rosmait",
+  "homepage": "https://github.com/DRosmait/creative-digital#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-group-css-media-queries": "^1.2.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-jsonminify": "^1.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8"
+  }
+}
